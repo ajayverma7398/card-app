@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "title": "Classic Sneakers",
+    "description": "Comfortable everyday sneakers with breathable mesh.",
+    "price": 79.99,
+    "originalPrice": 99.99,
+    "rating": 4.5,
+    "imageUrl": "/products/sneakers.jpg",
+    "images": [
+      "/products/sneakers.jpg",
+      "/products/sneakers-2.jpg",
+      "/products/sneakers-3.jpg"
+    ],
+    "features": [
+      "Breathable mesh upper",
+      "Cushioned insole",
+      "Non-slip rubber outsole",
+      "Lightweight design"
+    ],
+    "inStock": true,
+    "tag": "new"
+  },
+  {
+    "id": "2",
+    "title": "Wireless Headphones",
+    "description": "Noise-cancelling over-ear headphones with 30h battery.",
+    "price": 129.0,
+    "originalPrice": 149.0,
+    "rating": 4.7,
+    "imageUrl": "/products/headphones.jpg",
+    "images": [
+      "/products/headphones.jpg",
+      "/products/headphones-2.jpg",
+      "/products/headphones-3.jpg"
+    ],
+    "features": [
+      "Micro SD",
+      "Previous/Volume(-)",
+      "Pause/Play",
+      "Next/Volume(+) ",
+      "Call Attend/End Key",
+      "AUX In",
+      "Charging port",
+      "Built-in Mic"
+    ],
+    "inStock": false,
+    "tag": "none"
+  },
+  {
+    "id": "3",
+    "title": "Smart Watch",
+    "description": "Track health metrics and notifications on the go.",
+    "price": 199.99,
+    "originalPrice": 249.99,
+    "rating": 4.2,
+    "imageUrl": "/products/watch.jpg",
+    "images": [
+      "/products/watch.jpg",
+      "/products/watch-2.jpg",
+      "/products/watch-3.jpg"
+    ],
+    "features": [
+      "Heart rate monitor",
+      "Sleep tracking",
+      "Water resistant",
+      "Multiple sport modes"
+    ],
+    "inStock": true,
+    "tag": "sale"
+  }
+]
+
+
