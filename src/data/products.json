@@ -3,8 +3,8 @@
     "id": "1",
     "title": "Classic Sneakers",
     "description": "Comfortable everyday sneakers with breathable mesh.",
-    "price": 79.99,
-    "originalPrice": 99.99,
+    "price": 799.99,
+    "originalPrice": 999.99,
     "rating": 4.5,
     "imageUrl": "/products/sneakers.jpg",
     "images": [
@@ -25,8 +25,8 @@
     "id": "2",
     "title": "Wireless Headphones",
     "description": "Noise-cancelling over-ear headphones with 30h battery.",
-    "price": 129.0,
-    "originalPrice": 149.0,
+    "price": 1129.0,
+    "originalPrice": 1949.0,
     "rating": 4.7,
     "imageUrl": "/products/headphones.jpg",
     "images": [
@@ -51,8 +51,8 @@
     "id": "3",
     "title": "Smart Watch",
     "description": "Track health metrics and notifications on the go.",
-    "price": 199.99,
-    "originalPrice": 249.99,
+    "price": 2199.99,
+    "originalPrice": 5249.99,
     "rating": 4.2,
     "imageUrl": "/products/watch.jpg",
     "images": [

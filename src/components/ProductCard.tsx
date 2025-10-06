@@ -92,22 +92,22 @@ export default function ProductCard({ product, onView, className }: Props) {
           <div className="flex items-center justify-center gap-3 mb-4">
             {price !== undefined && (
               <span className="text-base font-semibold text-zinc-900 dark:text-zinc-100" aria-label={`Price ${price.toFixed(2)}`}>
-                ${price.toFixed(2)}
+                ₹{price.toFixed(2)}
               </span>
             )}
             {hasDiscount && (
               <span className="text-sm text-zinc-500 line-through" aria-label={`Original price ${originalPrice!.toFixed(2)}`}>
-                ${originalPrice!.toFixed(2)}
+                ₹{originalPrice!.toFixed(2)}
               </span>
             )}
             {rating !== undefined && (
               <span className="inline-flex items-center gap-1" aria-label={`Rating ${rating} out of 5`}>
-                {[0,1,2,3,4].map((i) => {
+                {[0, 1, 2, 3, 4].map((i) => {
                   const filled = rating >= i + 1;
                   const half = !filled && rating > i && rating < i + 1;
                   return (
                     <svg key={i} width="16" height="16" viewBox="0 0 24 24" aria-hidden className={filled ? "text-amber-500" : half ? "text-amber-400" : "text-zinc-400"}>
-                      <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                      <path fill="currentColor" d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                     </svg>
                   );
                 })}
