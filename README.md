@@ -137,7 +137,7 @@ The project includes existing coverage output under `coverage/` (generated previ
 
 ## Live Demo
 Once deployed, the live app will be available here:
-`https://your-vercel-deployment-url.vercel.app`
+`https://card-app-lemon.vercel.app/`
 
 ## Deployment
 ### Vercel (recommended)
