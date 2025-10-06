@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,10 +28,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-background text-foreground`}>
+        <Link
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-zinc-900 focus:text-white dark:focus:bg-white dark:focus:text-zinc-900 focus:px-3 focus:py-2 focus:rounded-md"
+        >
+          Skip to content
+        </Link>
         <NavBar />
-        <div className="mx-auto max-w-6xl px-4 py-8">
+        <main id="main-content" role="main" className="mx-auto max-w-6xl px-4 py-8">
           {children}
-        </div>
+        </main>
         <Footer />
       </body>
     </html>

@@ -20,10 +20,11 @@ export type Product = {
 type Props = {
   product: Product;
   onView?: (id: string) => void;
+  onAddToCart?: (id: string) => void;
   className?: string;
 };
 
-export default function ProductCard({ product, onView, className }: Props) {
+export default function ProductCard({ product, onView, onAddToCart, className }: Props) {
   const { id, title, description, imageUrl, price, originalPrice, rating, inStock = true, tag } = product;
   const hasDiscount = typeof price === "number" && typeof originalPrice === "number" && originalPrice > price;
 
@@ -39,9 +40,10 @@ export default function ProductCard({ product, onView, className }: Props) {
         className
       )}
       aria-labelledby={`product-title-${id}`}
+      role="article"
     >
       <figure className="w-full">
-        <div className="relative w-full aspect-[4/3] bg-zinc-100 dark:bg-zinc-900">
+        <div className="relative w-full aspect-[4/3] bg-zinc-100 dark:bg-zinc-900" role="img" aria-label={title}>
           <Image
             src={imageUrl}
             alt={title}
@@ -115,23 +117,29 @@ export default function ProductCard({ product, onView, className }: Props) {
               </span>
             )}
           </div>
-          <div className="flex w-full items-center justify-center gap-2">
+          <div className="w-full mt-2 space-y-2">
             <button
               type="button"
               onClick={() => (onView ? onView(id) : window.location.assign(`/products/${id}`))}
-              className="w-full inline-flex items-center justify-center rounded-md bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 px-4 py-2 font-medium transition-transform hover:shadow-lg group-hover:shadow-lg hover:scale-[1.02] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-500"
+              className="w-full inline-flex items-center justify-center rounded-md bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 px-4 py-2 font-medium transition-transform hover:shadow-lg group-hover:shadow-lg hover:scale-[1.01] focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-500"
               aria-label={`View more about ${title}`}
             >
               View More
             </button>
             <button
               type="button"
+              onClick={() => {
+                if (!inStock) return;
+                if (onAddToCart) onAddToCart(id);
+              }}
               disabled={!inStock}
               aria-disabled={!inStock}
               className={cn(
                 "w-full inline-flex items-center justify-center rounded-md border border-zinc-300 dark:border-zinc-700 px-4 py-2 font-medium text-zinc-900 dark:text-zinc-100 bg-white dark:bg-zinc-900 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-zinc-500",
                 !inStock && "opacity-60 cursor-not-allowed"
               )}
+              aria-label={inStock ? `Add ${title} to cart` : `${title} is unavailable`}
+              title={inStock ? "Add to cart" : "Unavailable"}
             >
               {inStock ? "Add to Cart" : "Unavailable"}
             </button>

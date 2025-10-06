@@ -13,7 +13,7 @@ export default function ProductGallery({ images, alt }: Props) {
 
   return (
     <div>
-      <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900">
+      <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800 bg-zinc-100 dark:bg-zinc-900" role="img" aria-label={alt}>
         <Image
           src={images[active]}
           alt={alt}
@@ -24,12 +24,15 @@ export default function ProductGallery({ images, alt }: Props) {
         />
       </div>
       {images.length > 1 && (
-        <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 gap-3">
+        <div className="mt-4" role="radiogroup" aria-label="Select product image">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
           {images.map((src, i) => (
             <button
               key={i}
               type="button"
               onClick={() => setActive(i)}
+              role="radio"
+              aria-checked={i === active}
               aria-label={`Show image ${i + 1}`}
               className={`relative w-full aspect-square rounded-md overflow-hidden border ${
                 i === active ? "border-zinc-900 dark:border-white" : "border-zinc-200 dark:border-zinc-800"
@@ -38,6 +41,7 @@ export default function ProductGallery({ images, alt }: Props) {
               <Image src={src} alt={`${alt} ${i + 1}`} fill className="object-contain" />
             </button>
           ))}
+          </div>
         </div>
       )}
     </div>
